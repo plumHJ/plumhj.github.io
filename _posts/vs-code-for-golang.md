@@ -6,3 +6,6 @@ https://code.visualstudio.com/download
 ctrl + shift + p
 install go extention
 ```
+
+### Installation MinGW-w64
+https://sourceforge.net/projects/mingw-w64
