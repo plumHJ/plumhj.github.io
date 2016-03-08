@@ -1,4 +1,8 @@
 ### VS Code Download
 https://code.visualstudio.com/download
 
-### Install Go Extention
+### Installation Go Extention
+```
+ctrl + shift + p
+install go extention
+```
