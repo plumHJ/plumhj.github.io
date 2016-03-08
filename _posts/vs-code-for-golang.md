@@ -1,2 +1,4 @@
-### VS Code Download
-![VS Code](https://code.visualstudio.com)
+# VS Code Download
+https://code.visualstudio.com/download
+
+## Install Go Extention
