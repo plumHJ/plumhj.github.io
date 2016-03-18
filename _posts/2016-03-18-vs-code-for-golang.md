@@ -1,3 +1,8 @@
+---
+layout: post
+title: vs-code for golang
+---
+
 ### VS Code Download
 https://code.visualstudio.com/download
 
