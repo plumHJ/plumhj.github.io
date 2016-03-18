@@ -1,3 +1,8 @@
+---
+layout: post
+title: You're up and running!
+---
+
 ### VS Code Download
 https://code.visualstudio.com/download
 
