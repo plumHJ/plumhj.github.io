@@ -4,7 +4,7 @@ https://code.visualstudio.com/download
 ### Installation Go Extention
 ```
 ctrl + shift + p
-install go extention
+install extension
 ```
 
 ### Installation MinGW-w64
