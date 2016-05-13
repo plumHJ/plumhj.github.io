@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [[Spring]] AOP Annotation Pointcut
+title: Spring AOP Annotation Pointcut
 ---
 
 ### AopTestApplication.java
