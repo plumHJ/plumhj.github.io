@@ -3,6 +3,8 @@ layout: post
 title: "[Spring] AOP Annotation Pointcut"
 ---
 
+AOP를 활용한 requestMapping Annotation의 인증제어
+
 ### AopTestApplication.java
 
 ```java
@@ -41,6 +43,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @Aspect
 public class AspectA {
@@ -51,14 +55,22 @@ public class AspectA {
 	@Around("requestMapping()")
 	public Object auth(ProceedingJoinPoint pjp) throws Throwable {
         String name = pjp.getSignature().getName();
-        System.out.println("before : " + name);
-        System.out.println("args : " + pjp.getArgs()[0].toString());
-        System.out.println("args : " + pjp.getArgs()[1].toString());
+        System.out.println("method : " + name);
         
-        Object ret = pjp.proceed();
-        System.out.println("after : " + ret.toString());
-        return "hi";
-    }	
+        String id = pjp.getArgs()[0].toString();
+        String password = pjp.getArgs()[1].toString();
+        
+        System.out.println("id : " + id);
+        System.out.println("password : " + password);
+        
+        if(id.equals("root") && password.equals("1234")){
+        	return pjp.proceed();
+        }else{
+        	return new ResponseEntity<String>("You are not authorized", HttpStatus.BAD_REQUEST); 
+        }
+        
+    }
+	
 }
 ```
 
@@ -67,7 +79,8 @@ public class AspectA {
 ```java
 package plumhj.aop.test;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,11 +90,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	
 	@RequestMapping(value = "/", method = { RequestMethod.GET })
-	public String root(@RequestParam("id") String id, @RequestParam("password") String password){
-		return "Hello world!!";
+	public ResponseEntity<String> root(@RequestParam("id") String id, @RequestParam("password") String password){
+		return new ResponseEntity<String>("Hello! " + id, HttpStatus.OK);
 	}
-	
-	
 }
 ```
 
