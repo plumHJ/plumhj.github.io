@@ -67,8 +67,12 @@
 						ret += lineSeperator;
 						continue;
 					}
+					var idx = line.indexOf('`');
+					if(idx > 0) {
+						line = line.substr(0, idx)
+					}
 
-					var idx = line.indexOf(' ');
+					idx = line.indexOf(' ');
 					if(idx < 0) continue;
 					var name = line.substr(0, idx);
 					var name2 = '';
