@@ -6,6 +6,11 @@
 
 	<style type="text/css">
 		
+		textarea:-ms-input-placeholder { color: #7f7f7f; font-size: 15px }
+		textarea::-webkit-input-placeholder { color: #7f7f7f; font-size: 15px }
+		textarea::-moz-placeholder { color: #7f7f7f; font-size: 15px } 
+		textarea::-moz-placeholder { color: #7f7f7f; font-size: 15px }
+
 		html, body { height:100%; overflow:hidden }
 
 		.wrap {
@@ -110,7 +115,7 @@
 	</div>
 	<div class="wrap">
 		<div class="contentL">
-			<textarea id="txtContent"></textarea>	
+			<textarea id="txtContent" placeholder="struct를 붙여 넣으세요.&#13;&#10;&#13;&#10;type SomeStruct struct {&#13;&#10;    AA    string&#13;&#10;    BB    int&#13;&#10;}"></textarea>	
 		</div>
 		<div class="contentR">
 			<textarea id="txtContent2"></textarea>	
