@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>golang struct json tag 생성기</title>
+	<title>golang struct tag 생성기</title>
 
 	<style type="text/css">
 		
@@ -92,7 +92,7 @@
 
 					name2 += name.substr(idx);
 
-					ret += "\t" + line + '\t`json:"' + name2 + '"`' + lineSeperator;
+					ret += "\t" + line + '\t`json:"' + name2 + ',omitempty"' + ' xml:"' + name2 + ',omitempty"`' + lineSeperator;
 					
 				}
 
@@ -111,7 +111,7 @@
 <body>
 
 	<div>
-		<h2>golang struct json tag 생성기</h2>
+		<h2>golang struct tag 생성기</h2>
 	</div>
 	<div class="wrap">
 		<div class="contentL">
